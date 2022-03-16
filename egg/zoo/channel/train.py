@@ -383,7 +383,7 @@ def main(params):
             all_messages.append(x)
         all_messages = np.asarray(all_messages)
 
-        if epoch%50==0:
+        if epoch%20==0:
             torch.save(sender.state_dict(), opts.dir_save+"/sender/sender_weights"+str(epoch)+".pth")
             torch.save(receiver.state_dict(), opts.dir_save+"/receiver/receiver_weights"+str(epoch)+".pth")
             #print(acc_vec)
