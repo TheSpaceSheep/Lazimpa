@@ -268,6 +268,7 @@ def dump_impatient(game, n_features, device, gs_mode,epoch):
 def main(params):
     print(torch.cuda.is_available())
     opts = get_params(params)
+    opts.impatient = (opts.impatient=="True")
     print(opts, flush=True)
     device = opts.device
 

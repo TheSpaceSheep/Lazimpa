@@ -55,7 +55,7 @@ class RnnEncoder(nn.Module):
 
         lengths = lengths.cpu()
 
-        import ipdb; ipdb.set_trace()
+        # import ipdb; ipdb.set_trace()
 
         packed = nn.utils.rnn.pack_padded_sequence(
             emb, lengths, batch_first=True, enforce_sorted=False)
