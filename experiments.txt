@@ -30,3 +30,6 @@ python3 -m egg.zoo.channel.train --dir_save=dir_save \
 problèmes : dépasse le temps max sur colab, prend 20h sur mon ordi, prend 3h30
 sur vast.ai, une plateforme que j'ai testée (mais ça m'a coûté 30 centimes).
 
+Lazimpa : alpha varie de 0 à 0.06
+Anti-efficient : alpha va jusqu'à 1 (au dessus pas de convergence)
+
