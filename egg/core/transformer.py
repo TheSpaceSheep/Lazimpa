@@ -10,6 +10,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 from .util import find_lengths
 
 
@@ -332,8 +333,8 @@ class TransformerDecoderLayer(nn.Module):
         x, attn = self.encoder_attn(
             query=x,
             key=encoder_out,
-            value=encoder_out,
-            static_kv=True,
+            value=encoder_out#,
+            #static_kv=True,
         )
         x = F.dropout(x, p=self.dropout, training=self.training)
         x = residual + x
