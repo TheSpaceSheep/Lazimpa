@@ -255,6 +255,7 @@ def main(params):
         #                                         opts.receiver_hidden, cell=opts.receiver_cell,
         #                                         num_layers=opts.receiver_num_layers, max_len=opts.max_len, n_features=opts.n_features)
 
+    print(sender.state_dict)
     sender.load_state_dict(torch.load(opts.sender_weights,map_location=torch.device('cpu')))
     receiver.load_state_dict(torch.load(opts.receiver_weights,map_location=torch.device('cpu')))
 
