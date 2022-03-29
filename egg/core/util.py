@@ -602,6 +602,7 @@ def dump_sender_receiver_impatient(game: torch.nn.Module,
             sender_input = move_to(batch[0], device)
             receiver_input = None if len(batch) == 2 else move_to(batch[2], device)
 
+            import ipdb; ipdb.set_trace()
             print(sender_input.shape, receiver_input.shape, flush=True)
             message = game.sender(sender_input)
 
