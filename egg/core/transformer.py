@@ -281,6 +281,7 @@ class TransformerDecoderLayer(nn.Module):
             num_heads=num_heads,
             dropout=attention_dropout
         )  # self-attn?
+        print(num_heads, embed_dim)
 
         self.dropout = dropout
         self.activation_dropout = activation_dropout
