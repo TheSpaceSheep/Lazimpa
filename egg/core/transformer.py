@@ -333,8 +333,8 @@ class TransformerDecoderLayer(nn.Module):
         # would be a single vector, so no point in attention at all
         x, attn = self.encoder_attn(
             query=x,
-            key=encoder_out,
-            value=encoder_out#,
+            key=encoder_out.unsqueeze(0),
+            value=encoder_out.unsqueeze(0)#,
             #static_kv=True,
         )
         x = F.dropout(x, p=self.dropout, training=self.training)
