@@ -180,10 +180,10 @@ def main(params):
 
     sender.load_state_dict(torch.load(opts.sender_weights,map_location=torch.device('cpu')))
     weights = torch.load(opts.receiver_weights,map_location=torch.device('cpu'))
-    weights['hidden_to_output.weight'] = weights['agent.output.weight']
-    weights['hidden_to_output.bias'] = weights['agent.output.bias']
-    del weights['agent.output.weight']
-    del weights['agent.output.bias']
+    # weights['hidden_to_output.weight'] = weights['agent.output.weight']
+    # weights['hidden_to_output.bias'] = weights['agent.output.bias']
+    # del weights['agent.output.weight']
+    # del weights['agent.output.bias']
     receiver.load_state_dict(weights)
 
     if not opts.impatient:
