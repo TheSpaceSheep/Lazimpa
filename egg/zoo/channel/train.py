@@ -269,6 +269,7 @@ def main(params):
     print(torch.cuda.is_available())
     opts = get_params(params)
     opts.impatient = (opts.impatient=="True")
+    opts.reg = (opts.reg=="True")
     print(opts, flush=True)
     device = opts.device
 
