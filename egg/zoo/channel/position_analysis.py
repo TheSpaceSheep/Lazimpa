@@ -184,7 +184,7 @@ def main(params):
     weights['hidden_to_output.bias'] = weights['agent.output.bias']
     del weights['agent.output.weight']
     del weights['agent.output.bias']
-    receiver.load_state_dict()
+    receiver.load_state_dict(weights)
 
     if not opts.impatient:
         game = core.SenderReceiverRnnReinforce(sender, receiver, loss, sender_entropy_coeff=opts.sender_entropy_coeff,
