@@ -711,6 +711,7 @@ class SenderImpatientReceiverRnnReinforce(nn.Module):
         self.length_cost = length_cost
         self.unigram_penalty = unigram_penalty
         self.reg=reg
+        self.reg_coeff = length_cost if length_cost != 0. else 1.
 
         self.mean_baseline = defaultdict(float)
         self.n_points = defaultdict(float)
@@ -770,7 +771,7 @@ class SenderImpatientReceiverRnnReinforce(nn.Module):
             #self.length_cost= sc**(45) / 10
 
             # Pour n_features=100
-            self.length_cost= sc**(45) / 5
+            self.length_cost= self.reg_coeff * sc**(45) / 5
 
         length_loss = message_lengths.float() * self.length_cost
 

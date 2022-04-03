@@ -610,10 +610,13 @@ def dump_sender_receiver_impatient(game: torch.nn.Module,
 
             output = game.receiver(message, receiver_input)
 
-            if not gs: output = output[0]
+            print(output[0])
+            if not gs: output = output[0].unsqueeze(2)
+
 
             # AJOUT
-            preds=output[:,:,:].argmax(2)
+            uprint(output)
+            preds=output[:,:,:].argmax(1)
 
             if test_mode:
                 np.save(save_dir+"predictions.npy",preds.cpu().numpy())
