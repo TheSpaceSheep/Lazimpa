@@ -596,6 +596,7 @@ class SenderReceiverRnnReinforce(nn.Module):
         self.mean_baseline = defaultdict(float)
         self.n_points = defaultdict(float)
         self.reg=reg
+        self.reg_coeff = length_cost if length_cost != 0. else 1.  # constant multiplier of the regularizer
 
     def forward(self, sender_input, labels, receiver_input=None):
         message, log_prob_s, entropy_s = self.sender(sender_input)
@@ -628,7 +629,7 @@ class SenderReceiverRnnReinforce(nn.Module):
           sc=rest["acc"].sum()/rest["acc"].size(0)
 
           # Pour n_features=100
-          self.length_cost= sc**(45) / 5
+          self.length_cost= self.reg_coeff * sc**(45) / 5
 
           #self.length_cost= sc**(45) / 10
           #if sc>0.99:
