@@ -615,7 +615,6 @@ def dump_sender_receiver_impatient(game: torch.nn.Module,
 
 
             # AJOUT
-            uprint(output)
             preds=output[:,:,:].argmax(1)
 
             if test_mode:
