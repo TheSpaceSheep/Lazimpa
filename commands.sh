@@ -34,3 +34,6 @@ python3 -m egg.zoo.channel.train  --dir_save=dir_save_1 --impatient=False --reg=
 
 mkdir -p dir_save_r1/{accuracy,messages,sender,receiver}
 python3 -m egg.zoo.channel.train  --dir_save=dir_save_r1 --impatient=False --reg=True --vocab_size=40 --max_len=30 --n_features=100 --print_message=False --random_seed=7 --probs="powerlaw" --n_epoch=501 --batch_size=512 --length_cost=5 --sender_cell="lstm" --receiver_cell="lstm" --sender_hidden=250 --receiver_hidden=600 --receiver_embedding=100 --sender_embedding=10 --batches_per_epoch=100 --lr=0.001 --sender_entropy_coeff=2. --sender_num_layers=1 --receiver_num_layers=1 --early_stopping_thr=0
+
+mkdir -p dir_save_r2/{accuracy,messages,sender,receiver}
+python3 -m egg.zoo.channel.train  --dir_save=dir_save_r2 --impatient=False --reg=True --vocab_size=40 --max_len=30 --n_features=100 --print_message=False --random_seed=3 --probs="powerlaw" --n_epoch=501 --batch_size=512 --length_cost=30 --sender_cell="lstm" --receiver_cell="lstm" --sender_hidden=250 --receiver_hidden=600 --receiver_embedding=100 --sender_embedding=10 --batches_per_epoch=100 --lr=0.001 --sender_entropy_coeff=2. --sender_num_layers=1 --receiver_num_layers=1 --early_stopping_thr=0
